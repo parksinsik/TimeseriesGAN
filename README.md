@@ -3,18 +3,19 @@ import datetime
 import os
 import random
 import matplotlib.pyplot as plt
-import torchvision.transforms as transforms
 
 import torch
-import torch.nn as nn
 import torch.backends.cudnn as cudnn
+import torch.nn as nn
 import torch.optim as optim
 import torch.utils.data
 import torchvision
+import torchvision.transforms as transforms
+
 from tensorboardX import SummaryWriter
 
 from KospiDataset import KospiDataset
-from Models import LSTMGenerator, CasualConvDiscriminator
+from models import LSTMGenerator, CasualConvDiscriminator
 from utils import time_series_to_plot
 ```
 
