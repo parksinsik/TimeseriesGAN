@@ -1,18 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[143]:
-
-
 import numpy as np
 import pandas as pd
 from datetime import datetime
 
 import torch
 from torch.utils.data import Dataset, DataLoader
-
-
-# In[185]:
 
 
 class KospiDataset(Dataset):
@@ -25,7 +16,7 @@ class KospiDataset(Dataset):
         data["date"] = data["time"].apply(lambda x: x.date())
         
         data.set_index("time", inplace=True)
-        data.rename(columns = {"29": "kospi200"}, inplace=True)
+        data.rename(columns={"29": "kospi200"}, inplace=True)
         
         data = data[data.index.hour != 18].dropna()
         data = data.resample(rule="5T").last().dropna()
@@ -70,9 +61,6 @@ class KospiDataset(Dataset):
     
     def sample_deltas(self, n):
         return torch.randn(n, 1) * self.norm_delta_std + self.norm_delta_mean
-        #return (torch.randn(n, 1) + self.norm_delta_mean) * self.norm_delta_std
     
     def normalize_deltas(self, x):
         return ((self.norm_delta_max - self.norm_delta_min) * (x - self.org_delta_min) / (self.org_delta_max - self.org_delta_min) + self.norm_delta_min)
-    
-
