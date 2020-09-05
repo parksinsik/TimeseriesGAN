@@ -1,14 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[11]:
-
-
 import numpy as np
 import torch
-
-
-# In[12]:
 
 
 class DatasetGenerator:
@@ -46,8 +37,6 @@ class DatasetGenerator:
             
         if output_name:
             np.save(output_name, output_tensor.detach().numpy())
-            
         else:
             return output_tensor
         
-
