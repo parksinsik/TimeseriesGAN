@@ -1,15 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import torch
 import torch.nn as nn
 from torch.nn.utils import weight_norm
-
-
-# In[2]:
 
 
 class LSTMGenerator(nn.Module):
@@ -40,10 +31,7 @@ class LSTMGenerator(nn.Module):
         
         return outputs
 
-
-# In[3]:
-
-
+    
 class Chomp1d(nn.Module): # K
     
     def __init__(self, chomp_size):
@@ -146,4 +134,3 @@ class CasualConvDiscriminator(nn.Module):
                 
     def forward(self, x, channel_last=True):
         return torch.sigmoid(self.tcn(x, channel_last))
-
