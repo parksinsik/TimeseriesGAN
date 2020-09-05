@@ -125,7 +125,7 @@ class TCN(nn.Module):
         return self.linear(y.transpose(1, 2))
 
 
-class CasualConvDiscriminator(nn.Module):
+class CausalConvDiscriminator(nn.Module):
     
     def __init__(self, input_size, n_layers, n_channel, kernel_size, dropout=0.3):        
         super().__init__()
