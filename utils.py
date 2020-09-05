@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[15]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -11,15 +5,10 @@ import torch
 import torchvision.utils as vutils
 
 
-# In[16]:
-
-
 def time_series_to_plot(time_series, dpi=25, feature_index=0, n_images_per_row=4, titles=None):
     
     images = []
-    
     for i , series in enumerate(time_series.detach()):
-        
         fig = plt.figure(dpi=dpi)
         ax = fig.add_subplot(1, 1, 1)
         
@@ -44,4 +33,3 @@ def time_series_to_plot(time_series, dpi=25, feature_index=0, n_images_per_row=4
 def tensor_to_string_list(tensor):
     scalar_list = tensor.squeeze().numpy().tolist()
     return ["%.6f" % scalar for scalar in scalar_list]
-
