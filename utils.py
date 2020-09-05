@@ -28,8 +28,3 @@ def time_series_to_plot(time_series, dpi=25, feature_index=0, n_images_per_row=4
     grid = vutils.make_grid(images.detach(), nrow=n_images_per_row)
     
     return grid
-
-
-def tensor_to_string_list(tensor):
-    scalar_list = tensor.squeeze().numpy().tolist()
-    return ["%.6f" % scalar for scalar in scalar_list]
