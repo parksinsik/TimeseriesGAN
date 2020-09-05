@@ -15,7 +15,7 @@ import torchvision.transforms as transforms
 from tensorboardX import SummaryWriter
 
 from KospiDataset import KospiDataset
-from models import LSTMGenerator, CasualConvDiscriminator
+from models import LSTMGenerator, CausalConvDiscriminator
 from utils import time_series_to_plot
 ```
 
@@ -60,7 +60,7 @@ delta_lambda = 10
 
 
 ```python
-dataset = KospiDataset("C:\\Users\\parksinsik\\Desktop\\QuantGAN\\DATA\\kospi200.csv")
+dataset = KospiDataset("kospi200.csv")
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=1)
 ```
 
@@ -78,7 +78,7 @@ input_dim = nz + 1
 
 ```python
 netG = LSTMGenerator(input_dim=input_dim, output_dim=1, hidden_dim=512, n_layers=2).to(device)
-netD = CasualConvDiscriminator(input_size=1, n_layers=8, n_channel=1, kernel_size=2, dropout=0.3).to(device)
+netD = CausalConvDiscriminator(input_size=1, n_layers=8, n_channel=1, kernel_size=2, dropout=0.3).to(device)
 ```
 
 
